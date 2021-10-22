@@ -135,6 +135,8 @@ abbreviations = {
     "number": "num",
     "object": "obj",
     "okay": "ok",
+    "operate" : "op",
+    "operation": "op",
     "ontario": "on",
     "option": "opt",
     "operating system": "os",
