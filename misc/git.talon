@@ -82,6 +82,11 @@ git switch orphan: "git switch --orphan "
 git submodule add:  "git submodule add "
 git tag: "git tag "
 
+# arcanist commands
+arc diff: "arc diff "
+arc land: "arc land "
+arc lint: "arc lint "
+
 # Convenience
 git edit config: "git config --local -e\n"
 
