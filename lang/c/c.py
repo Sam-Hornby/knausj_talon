@@ -30,10 +30,36 @@ ctx.lists["self.c_signed"] = {
     "unsigned": "unsigned ",
 }
 
-common_types = {
-    "static": "static",
+ctx.lists["self.c_common_types"] = {
+    "static": "static ",
     "volatile": "volatile",
     "register": "register",
+    "class": "class ",
+    "structure": "struct ",
+    "standard": "std::",
+    "abort": "abort();",
+    "map": "unordered_map<",
+    "absell": "absl",
+    "vector": "vector<",
+    "boost": "boost",
+    "tensor flow" : "tensorflow",
+    "compiler": "llvm",
+    "poplar": "poplar",
+    "optional": "optional",
+    "variant" : "variant",
+    "name space" : "namespace ",
+    "using": "using ",
+    "include": "#include ",
+    "core": "core",
+    "type def": "typedef ",
+    "pair": "pair",
+    "tuple": "tuple",
+    "template": "template ",
+    "function": "function",
+    "constant": "const ",
+    "virtual": "virtual ",
+    "override": "override ",
+    #"colonel" : "kernel",
 }
 
 ctx.lists["self.stdint_types"] = {
@@ -67,6 +93,7 @@ ctx.lists["self.c_types"] = {
     "num": "enum",
     "union": "union",
     "float": "float",
+    "auto": "auto",
 }
 
 ctx.lists["user.code_libraries"] = {
@@ -135,6 +162,7 @@ ctx.lists["user.code_functions"] = {
 
 mod.list("c_pointers", desc="Common C pointers")
 mod.list("c_signed", desc="Common C datatype signed modifiers")
+mod.list("c_common_types", desc="Common keywords") 
 mod.list("c_types", desc="Common C types")
 mod.list("stdint_types", desc="Common stdint C types")
 mod.list("stdint_signed", desc="Common stdint C datatype signed modifiers")
@@ -157,11 +185,15 @@ def c_types(m) -> str:
     "Returns a string"
     return m.c_types
 
-
-@mod.capture(rule="{self.c_types}")
-def c_types(m) -> str:
+@mod.capture(rule="{self.c_common_types}")
+def c_common_types(m) -> str:
     "Returns a string"
-    return m.c_types
+    return m.c_common_types
+
+#@mod.capture(rule="{self.c_types}")
+#def c_types(m) -> str:
+#    "Returns a string"
+#    return m.c_types
 
 
 @mod.capture(rule="{self.stdint_types}")
